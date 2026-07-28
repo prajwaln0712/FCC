@@ -25,19 +25,19 @@ def plot_runtimes():
     x = np.arange(len(sorted_methods))  # the label locations
     width = 0.5  # the width of the bars
 
-    fig, ax = plt.subplots(figsize=(12, 14))
+    fig, ax = plt.subplots(figsize=(12, 8))
     rects = ax.bar(x, times, width)
 
     # Add some text for labels, title and axes ticks
     ax.set_ylabel('Time (seconds)', fontsize=32)
     ax.set_title('Runtimes for Different Dataset Distance Methods', fontsize=32)
     ax.set_xticks(x)
-    ax.set_xticklabels(sorted_methods, rotation=30, ha="right", fontsize=24)
-    ax.tick_params(axis='y', labelsize=32)
-    ax.set_yscale('log')  # Set y-axis to logarithmic scale
+    ax.set_xticklabels(sorted_methods, rotation=25, ha="right", fontsize=24)
+    ax.tick_params(axis='y', labelsize=24)
+    ax.set_ylim(0, 2700)
 
     # Add labels to the bars
-    ax.bar_label(rects, padding=3, fmt='%.0f', fontsize=32)
+    ax.bar_label(rects, padding=3, fmt='%.0f', fontsize=24)
 
     fig.tight_layout()
     plt.savefig('runtimes_barplot.png')
