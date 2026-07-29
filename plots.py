@@ -2,6 +2,7 @@ import json
 import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
+from scipy.stats import pearsonr
 
 def plot_runtimes():
     """
@@ -66,6 +67,12 @@ def plot_inception_correlation():
 
     sns.regplot(x=fcc_inception, y=otdd_exact, ax=ax, scatter_kws={'alpha':0.6})
 
+    # Calculate correlation and p-value
+    rho, p_value = pearsonr(fcc_inception, otdd_exact)
+    ax.text(0.05, 0.95, f'$\\rho$ = {rho:.2f}\np-value = {p_value:.2f}',
+            transform=ax.transAxes, fontsize=32,
+            verticalalignment='top', bbox=dict(boxstyle='round,pad=0.5', fc='white', alpha=0.5))
+
     ax.set_xlabel('FCC (Inception) Distances', fontsize=32)
     ax.set_ylabel('OTDD (Exact) Distances', fontsize=32)
     ax.set_title('Distance Correlation', fontsize=32)
@@ -94,9 +101,15 @@ def plot_dino_correlation():
     plt.rcParams['font.family'] = 'serif'
     plt.rcParams['font.serif'] = ['Times New Roman'] + plt.rcParams['font.serif']
 
-    fig, ax = plt.subplots(figsize=(9, 7))
+    fig, ax = plt.subplots(figsize=(10, 8))
 
     sns.regplot(x=fcc_dino, y=otdd_exact, ax=ax, scatter_kws={'alpha':0.6})
+
+    # Calculate correlation and p-value
+    rho, p_value = pearsonr(fcc_dino, otdd_exact)
+    ax.text(0.05, 0.95, f'$\\rho$ = {rho:.2f}\np-value = {p_value:.2f}',
+            transform=ax.transAxes, fontsize=32,
+            verticalalignment='top', bbox=dict(boxstyle='round,pad=0.5', fc='white', alpha=0.5))
 
     ax.set_xlabel('FCC (DINOv3) Distances', fontsize=32)
     ax.set_ylabel('OTDD (Exact) Distances', fontsize=32)
@@ -110,6 +123,6 @@ def plot_dino_correlation():
     plt.show()
 
 if __name__ == '__main__':
-    # plot_runtimes()
+    plot_runtimes()
     plot_inception_correlation()
     plot_dino_correlation()
