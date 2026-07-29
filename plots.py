@@ -2,7 +2,7 @@ import json
 import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
-from scipy.stats import pearsonr
+from scipy.stats import pearsonr, spearmanr
 
 def plot_runtimes():
     """
@@ -69,6 +69,7 @@ def plot_inception_correlation():
 
     # Calculate correlation and p-value
     rho, p_value = pearsonr(fcc_inception, otdd_exact)
+    # rho,p_value = spearmanr(fcc_inception, otdd_exact)
     ax.text(0.05, 0.95, f'$\\rho$ = {rho:.2f}\np-value = {p_value:.2f}',
             transform=ax.transAxes, fontsize=32,
             verticalalignment='top', bbox=dict(boxstyle='round,pad=0.5', fc='white', alpha=0.5))
@@ -101,12 +102,13 @@ def plot_dino_correlation():
     plt.rcParams['font.family'] = 'serif'
     plt.rcParams['font.serif'] = ['Times New Roman'] + plt.rcParams['font.serif']
 
-    fig, ax = plt.subplots(figsize=(10, 8))
+    fig, ax = plt.subplots(figsize=(11, 8))
 
     sns.regplot(x=fcc_dino, y=otdd_exact, ax=ax, scatter_kws={'alpha':0.6})
 
     # Calculate correlation and p-value
     rho, p_value = pearsonr(fcc_dino, otdd_exact)
+    # rho, p_value = spearmanr(fcc_dino, otdd_exact)
     ax.text(0.05, 0.95, f'$\\rho$ = {rho:.2f}\np-value = {p_value:.2f}',
             transform=ax.transAxes, fontsize=32,
             verticalalignment='top', bbox=dict(boxstyle='round,pad=0.5', fc='white', alpha=0.5))

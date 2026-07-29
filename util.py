@@ -60,7 +60,7 @@ def _label_distance_matrix(labels1, labels2):
     return (labels1.unsqueeze(1) != labels2.unsqueeze(0)).float()
 
 
-def exact_otdd(X1, y1, X2, y2, class_dist_scale=1.0, reg=0.1):
+def exact_otdd(X1, y1, X2, y2, class_dist_scale=1.0, reg=0.001):
     """
     Computes the exact Optimal Transport Dataset Distance (OTDD).
 

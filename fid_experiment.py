@@ -74,6 +74,7 @@ def c100_c10_otdd_distance(trainset, trainset100, features_cifar10, features_cif
         selected_labels_cifar10 = cifar_labels[cifar_labels == class_index]
         otdd_score_subset = util.exact_otdd(features_cifar100, torch.tensor(trainset100.targets), selected_features_cifar10, selected_labels_cifar10)
         otdds.append(otdd_score_subset)
+        print(f"target={class_name}, otdd_exact_score={otdd_score_subset}")
     end_time = time.time()
     elapsed_time = end_time - start_time
     runtimes[cache_key] = elapsed_time
@@ -131,10 +132,11 @@ def main():
     dino_features_cifar10, dino_features_cifar100, _ = data.load_dinov3()
     trainset, trainset100 = data.load_cifar_pytorch_datasets()
 
-    c100_c10_inception_distance(trainset, trainset100, features_cifar10, features_cifar100, runtimes, distances_cache)
-    c100_c10_dinov3_distance(trainset, trainset100, dino_features_cifar10, dino_features_cifar100, runtimes, distances_cache)
+    # distances_cache.pop('OTDD (Exact) C100->C10')
+    # c100_c10_inception_distance(trainset, trainset100, features_cifar10, features_cifar100, runtimes, distances_cache)
+    # c100_c10_dinov3_distance(trainset, trainset100, dino_features_cifar10, dino_features_cifar100, runtimes, distances_cache)
     c100_c10_otdd_distance(trainset, trainset100, features_cifar10, features_cifar100, runtimes, distances_cache)
-    c100_c10_sotdd_distance(trainset, trainset100, features_cifar10, features_cifar100, runtimes, distances_cache)
+    # c100_c10_sotdd_distance(trainset, trainset100, features_cifar10, features_cifar100, runtimes, distances_cache)
 
     save_distances_cache(distances_cache)
     with open('runtimes.json', 'w') as f:
