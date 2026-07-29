@@ -1,6 +1,7 @@
 import json
 import matplotlib.pyplot as plt
 import numpy as np
+import seaborn as sns
 
 def plot_runtimes():
     """
@@ -29,20 +30,86 @@ def plot_runtimes():
     rects = ax.bar(x, times, width)
 
     # Add some text for labels, title and axes ticks
-    ax.set_ylabel('Time (seconds)', fontsize=32)
-    ax.set_title('Runtimes for Different Dataset Distance Methods', fontsize=32)
+    ax.set_ylabel('Time (seconds)', fontsize=14)
+    ax.set_title('Runtimes for Different Dataset Distance Methods', fontsize=16)
     ax.set_xticks(x)
-    ax.set_xticklabels(sorted_methods, rotation=25, ha="right", fontsize=24)
-    ax.tick_params(axis='y', labelsize=24)
-    ax.set_ylim(0, 2700)
+    ax.set_xticklabels(sorted_methods, rotation=45, ha="right", fontsize=12)
+    ax.tick_params(axis='y', labelsize=12)
+    ax.set_ylim(0, 2600)
 
     # Add labels to the bars
-    ax.bar_label(rects, padding=3, fmt='%.0f', fontsize=24)
+    ax.bar_label(rects, padding=3, fmt='%.0f', fontsize=12)
 
     fig.tight_layout()
     plt.savefig('runtimes_barplot.png')
     print("Bar plot saved to 'runtimes_barplot.png'")
     plt.show()
 
+def plot_inception_correlation():
+    """
+    Loads distances from distances_cache.npz and generates a scatter plot
+    with a linear regression line to show the correlation between
+    OTDD (Exact) and FCC (Inception) distances.
+    """
+    try:
+        with np.load('distances_cache.npz') as data:
+            otdd_exact = data['OTDD (Exact) C100->C10']
+            fcc_inception = data['FCC (Inception) C100->C10']
+    except FileNotFoundError:
+        print("Error: 'distances_cache.npz' not found. Please run 'fid_experiment.py' first.")
+        return
+
+    plt.rcParams['font.family'] = 'serif'
+    plt.rcParams['font.serif'] = ['Times New Roman'] + plt.rcParams['font.serif']
+
+    fig, ax = plt.subplots(figsize=(10, 8))
+
+    sns.regplot(x=fcc_inception, y=otdd_exact, ax=ax, scatter_kws={'alpha':0.6})
+
+    ax.set_xlabel('FCC (Inception) Distances', fontsize=32)
+    ax.set_ylabel('OTDD (Exact) Distances', fontsize=32)
+    ax.set_title('Distance Correlation', fontsize=32)
+    ax.tick_params(axis='both', which='major', labelsize=32)
+    ax.grid(True)
+
+    fig.tight_layout()
+    plt.savefig('correlation_inception_plot.png')
+    print("Correlation plot saved to 'correlation_inception_plot.png'")
+    plt.show()
+
+def plot_dino_correlation():
+    """
+    Loads distances from distances_cache.npz and generates a scatter plot
+    with a linear regression line to show the correlation between
+    OTDD (Exact) and FCC (DINO) distances.
+    """
+    try:
+        with np.load('distances_cache.npz') as data:
+            otdd_exact = data['OTDD (Exact) C100->C10']
+            fcc_dino = data['FCC (DINO) C100->C10']
+    except FileNotFoundError:
+        print("Error: 'distances_cache.npz' not found. Please run 'fid_experiment.py' first.")
+        return
+
+    plt.rcParams['font.family'] = 'serif'
+    plt.rcParams['font.serif'] = ['Times New Roman'] + plt.rcParams['font.serif']
+
+    fig, ax = plt.subplots(figsize=(9, 7))
+
+    sns.regplot(x=fcc_dino, y=otdd_exact, ax=ax, scatter_kws={'alpha':0.6})
+
+    ax.set_xlabel('FCC (DINOv3) Distances', fontsize=32)
+    ax.set_ylabel('OTDD (Exact) Distances', fontsize=32)
+    ax.set_title('Distance Correlation', fontsize=32)
+    ax.tick_params(axis='both', which='major', labelsize=32)
+    ax.grid(True)
+
+    fig.tight_layout()
+    plt.savefig('correlation_dino_plot.png')
+    print("Correlation plot saved to 'correlation_dino_plot.png'")
+    plt.show()
+
 if __name__ == '__main__':
-    plot_runtimes()
+    # plot_runtimes()
+    plot_inception_correlation()
+    plot_dino_correlation()
