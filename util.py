@@ -1,3 +1,10 @@
+# TODO(license): exact_otdd / gaussian_otdd / sotdd below are said to be inherited from
+# MIT-licensed OTDD code (possibly github.com/microsoft/otdd — source URL unconfirmed).
+# Before this is shared or published: confirm the exact upstream repo/commit and copyright
+# holder, decide scope (just these functions vs. whole file vs. whole repo), add the
+# upstream MIT license text (e.g. a THIRD_PARTY_NOTICES.md), and add a proper attribution
+# header above the relevant code. See conversation on 2026-10-12.
+
 import numpy as np
 import torch
 from scipy.linalg import sqrtm
@@ -18,10 +25,16 @@ def calculate_mean_covariance(features):
 
 
 # Function to calculate the Fréchet Inception Distance (FID)
-def calculate_fid(mu1, sigma1, mu2, sigma2):
+def calculate_fid(mu1, sigma1, mu2, sigma2, ridge=0.0, max_imag=None):
     # Calculate the squared difference between the means
     diff = mu1 - mu2
     sum_sq_diff = np.sum(diff**2)
+
+    # Ridge regularisation for rank-deficient covariances (e.g. raw pixels)
+    if ridge > 0:
+        eye = np.eye(sigma1.shape[0], dtype=sigma1.dtype)
+        sigma1 = sigma1 + ridge * eye
+        sigma2 = sigma2 + ridge * eye
 
     # Calculate the square root of the product of covariances
     # This requires handling potential numerical instability
@@ -29,6 +42,9 @@ def calculate_fid(mu1, sigma1, mu2, sigma2):
 
     # Check for numerical issues and correct if necessary
     if np.iscomplexobj(covmean):
+        imag_max = np.abs(covmean.imag).max()
+        if max_imag is not None and imag_max > max_imag:
+            raise ValueError(f'sqrtm produced imaginary component {imag_max:.3e} > {max_imag:.1e}')
         covmean = covmean.real
 
     # Calculate the trace of the sum of covariances minus twice the square root of their product

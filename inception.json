@@ -1,0 +1,102 @@
+{
+  "MNIST->FashionMNIST": {
+    "mean": 232.5634,
+    "ratio": 0.8577,
+    "runtime_s": 25.43
+  },
+  "MNIST->KMNIST": {
+    "mean": 73.5856,
+    "ratio": 0.849,
+    "runtime_s": 26.21
+  },
+  "MNIST->USPS": {
+    "mean": 208.7158,
+    "ratio": 0.7889,
+    "runtime_s": 24.04
+  },
+  "MNIST->EMNIST-letters": {
+    "mean": 64.9446,
+    "ratio": 0.5382,
+    "runtime_s": 67.66
+  },
+  "FashionMNIST->MNIST": {
+    "mean": 229.6536,
+    "ratio": 0.8647,
+    "runtime_s": 25.94
+  },
+  "FashionMNIST->KMNIST": {
+    "mean": 232.2428,
+    "ratio": 0.8892,
+    "runtime_s": 25.87
+  },
+  "FashionMNIST->USPS": {
+    "mean": 311.8158,
+    "ratio": 0.8296,
+    "runtime_s": 23.98
+  },
+  "FashionMNIST->EMNIST-letters": {
+    "mean": 243.0103,
+    "ratio": 0.8825,
+    "runtime_s": 66.56
+  },
+  "KMNIST->MNIST": {
+    "mean": 87.3685,
+    "ratio": 0.6239,
+    "runtime_s": 26.11
+  },
+  "KMNIST->FashionMNIST": {
+    "mean": 247.1974,
+    "ratio": 0.8952,
+    "runtime_s": 25.69
+  },
+  "KMNIST->USPS": {
+    "mean": 223.1287,
+    "ratio": 0.8016,
+    "runtime_s": 24.07
+  },
+  "KMNIST->EMNIST-letters": {
+    "mean": 78.7762,
+    "ratio": 0.6716,
+    "runtime_s": 68.55
+  },
+  "USPS->MNIST": {
+    "mean": 193.3654,
+    "ratio": 0.8446,
+    "runtime_s": 26.42
+  },
+  "USPS->FashionMNIST": {
+    "mean": 294.332,
+    "ratio": 0.9128,
+    "runtime_s": 25.8
+  },
+  "USPS->KMNIST": {
+    "mean": 197.0596,
+    "ratio": 0.881,
+    "runtime_s": 26.17
+  },
+  "USPS->EMNIST-letters": {
+    "mean": 186.9918,
+    "ratio": 0.7314,
+    "runtime_s": 67.26
+  },
+  "EMNIST-letters->MNIST": {
+    "mean": 65.5796,
+    "ratio": 0.62,
+    "runtime_s": 26.11
+  },
+  "EMNIST-letters->FashionMNIST": {
+    "mean": 245.6589,
+    "ratio": 0.886,
+    "runtime_s": 26.25
+  },
+  "EMNIST-letters->KMNIST": {
+    "mean": 64.0928,
+    "ratio": 0.8696,
+    "runtime_s": 26.13
+  },
+  "EMNIST-letters->USPS": {
+    "mean": 202.2595,
+    "ratio": 0.8064,
+    "runtime_s": 24.08
+  }
+}

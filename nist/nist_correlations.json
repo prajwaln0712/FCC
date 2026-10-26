@@ -1,0 +1,40 @@
+[
+  {
+    "method": "OTDD",
+    "spearman": 0.41,
+    "pearson": null,
+    "weighted_kendall": null,
+    "source": "paper",
+    "n_pairs": null
+  },
+  {
+    "method": "s-OTDD",
+    "spearman": 0.4,
+    "pearson": 0.43,
+    "weighted_kendall": null,
+    "source": "paper",
+    "n_pairs": null
+  },
+  {
+    "method": "FCC-pixels mean",
+    "source": "computed",
+    "n_pairs": 20,
+    "spearman": 0.13318288194615027,
+    "spearman_p": 0.5756400821852516,
+    "pearson": 0.15139028152551473,
+    "pearson_p": 0.5240383742241204,
+    "weighted_kendall": 0.12434498763976148,
+    "weighted_kendall_p": null
+  },
+  {
+    "method": "FCC-pixels ratio",
+    "source": "computed",
+    "n_pairs": 20,
+    "spearman": 0.2799097857851294,
+    "spearman_p": 0.23198173549852916,
+    "pearson": 0.2690166074279176,
+    "pearson_p": 0.25141748705695643,
+    "weighted_kendall": 0.11052550399355295,
+    "weighted_kendall_p": null
+  }
+]

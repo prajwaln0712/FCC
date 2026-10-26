@@ -1,0 +1,22 @@
+{
+  "FashionMNIST->KMNIST": 6.6,
+  "FashionMNIST->EMNIST-letters": 5.8,
+  "USPS->FashionMNIST": 4.6,
+  "EMNIST-letters->FashionMNIST": 4.4,
+  "USPS->KMNIST": 4.3,
+  "USPS->EMNIST-letters": 4.3,
+  "MNIST->FashionMNIST": 4.1,
+  "KMNIST->FashionMNIST": 3.85,
+  "MNIST->KMNIST": 3.25,
+  "MNIST->EMNIST-letters": 2.85,
+  "KMNIST->EMNIST-letters": 2.75,
+  "EMNIST-letters->KMNIST": 2.05,
+  "FashionMNIST->MNIST": 1.55,
+  "USPS->MNIST": 0.85,
+  "FashionMNIST->USPS": 0.75,
+  "KMNIST->MNIST": 0.55,
+  "KMNIST->USPS": 0.55,
+  "EMNIST-letters->MNIST": 0.1,
+  "EMNIST-letters->USPS": -0.4,
+  "MNIST->USPS": -0.6
+}

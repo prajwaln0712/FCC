@@ -1,0 +1,102 @@
+{
+  "MNIST->FashionMNIST": {
+    "mean": 285.464,
+    "ratio": 0.8971,
+    "runtime_s": 4.23
+  },
+  "MNIST->KMNIST": {
+    "mean": 93.3039,
+    "ratio": 0.848,
+    "runtime_s": 4.25
+  },
+  "MNIST->USPS": {
+    "mean": 127.4436,
+    "ratio": 0.704,
+    "runtime_s": 4.16
+  },
+  "MNIST->EMNIST-letters": {
+    "mean": 57.7689,
+    "ratio": 0.528,
+    "runtime_s": 10.87
+  },
+  "FashionMNIST->MNIST": {
+    "mean": 284.9948,
+    "ratio": 0.9349,
+    "runtime_s": 4.32
+  },
+  "FashionMNIST->KMNIST": {
+    "mean": 252.1228,
+    "ratio": 0.93,
+    "runtime_s": 4.15
+  },
+  "FashionMNIST->USPS": {
+    "mean": 311.9182,
+    "ratio": 0.9593,
+    "runtime_s": 4.02
+  },
+  "FashionMNIST->EMNIST-letters": {
+    "mean": 288.458,
+    "ratio": 0.9235,
+    "runtime_s": 10.78
+  },
+  "KMNIST->MNIST": {
+    "mean": 101.6815,
+    "ratio": 0.8005,
+    "runtime_s": 4.05
+  },
+  "KMNIST->FashionMNIST": {
+    "mean": 262.687,
+    "ratio": 0.8856,
+    "runtime_s": 4.2
+  },
+  "KMNIST->USPS": {
+    "mean": 150.1899,
+    "ratio": 0.7129,
+    "runtime_s": 3.95
+  },
+  "KMNIST->EMNIST-letters": {
+    "mean": 97.0161,
+    "ratio": 0.7147,
+    "runtime_s": 10.78
+  },
+  "USPS->MNIST": {
+    "mean": 122.6265,
+    "ratio": 0.8651,
+    "runtime_s": 3.93
+  },
+  "USPS->FashionMNIST": {
+    "mean": 301.1472,
+    "ratio": 0.8874,
+    "runtime_s": 4.02
+  },
+  "USPS->KMNIST": {
+    "mean": 137.764,
+    "ratio": 0.8351,
+    "runtime_s": 4.29
+  },
+  "USPS->EMNIST-letters": {
+    "mean": 130.9627,
+    "ratio": 0.7731,
+    "runtime_s": 10.66
+  },
+  "EMNIST-letters->MNIST": {
+    "mean": 55.0294,
+    "ratio": 0.6827,
+    "runtime_s": 4.0
+  },
+  "EMNIST-letters->FashionMNIST": {
+    "mean": 288.1566,
+    "ratio": 0.8975,
+    "runtime_s": 4.23
+  },
+  "EMNIST-letters->KMNIST": {
+    "mean": 85.0889,
+    "ratio": 0.7873,
+    "runtime_s": 4.12
+  },
+  "EMNIST-letters->USPS": {
+    "mean": 134.543,
+    "ratio": 0.7285,
+    "runtime_s": 3.97
+  }
+}
