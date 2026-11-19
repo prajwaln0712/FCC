@@ -1,0 +1,22 @@
+{
+  "seed": 9,
+  "epochs_pretrain": 300,
+  "epochs_adapt": 30,
+  "augmentation": {
+    "brightness": 0.4704058862520172,
+    "contrast": 0.3986495451160337,
+    "saturation": 0.21083153001156418,
+    "hue": 0.43328092499317067
+  },
+  "cifar10_acc_adapt": 85.49,
+  "fcc": {
+    "inception": {
+      "mean": 123.6128869891611,
+      "ratio": 0.8626219601682779
+    },
+    "dino": {
+      "mean": 151.1745063285078,
+      "ratio": 0.7832318138290536
+    }
+  }
+}

@@ -6,9 +6,7 @@ import os
 import random
 import numpy as np
 
-# ---------------------------------------------------------------------------
 # Original CIFAR / TinyImagenet loaders (kept for reference, commented out)
-# ---------------------------------------------------------------------------
 # def load_inception():
 #     global save_path
 #     # Load pre-saved INCEPTION features
@@ -78,9 +76,6 @@ import numpy as np
 # # main()
 
 
-# ---------------------------------------------------------------------------
-# MNIST-family datasets: 28x28 greyscale -> tensor -> normalize -> flatten(784)
-# ---------------------------------------------------------------------------
 DATA_ROOT = './data'
 MNIST_MEAN = 0.1307
 MNIST_STD = 0.3081

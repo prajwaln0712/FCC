@@ -10,7 +10,7 @@
 #SBATCH --mem=16G
 #SBATCH --mail-user=slack:@pn2694
 #SBATCH --mail-type=ALL
-#SBATCH --time=2-12:00:00
+#SBATCH --time=2-18:00:00
 
 # Full 300-epoch Tiny-ImageNet pretrain / 30-epoch CIFAR10 adapt run, for one seed.
 # Submit once per seed: sbatch jobs/augment_production.sh <seed>  (15 separate calls for 15 seeds)

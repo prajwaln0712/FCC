@@ -1,0 +1,38 @@
+[
+  {
+    "method": "FCC-inception2048-mean",
+    "n_pairs": 6,
+    "spearman": -0.3714285714285715,
+    "spearman_p": 0.46847813411078715,
+    "pearson": -0.7096742997344014,
+    "pearson_p": 0.11419788510119636,
+    "weighted_kendall": -0.24353741496598647
+  },
+  {
+    "method": "FCC-inception2048-ratio",
+    "n_pairs": 6,
+    "spearman": -0.7142857142857143,
+    "spearman_p": 0.1107871720116617,
+    "pearson": -0.6734557268078397,
+    "pearson_p": 0.1425368458265358,
+    "weighted_kendall": -0.6435374149659866
+  },
+  {
+    "method": "FCC-dinov3vith16plus-mean",
+    "n_pairs": 6,
+    "spearman": -0.08571428571428573,
+    "spearman_p": 0.8717434402332361,
+    "pearson": -0.5953077201710786,
+    "pearson_p": 0.2125243527206461,
+    "weighted_kendall": -0.009523809523809615
+  },
+  {
+    "method": "FCC-dinov3vith16plus-ratio",
+    "n_pairs": 6,
+    "spearman": -0.2571428571428572,
+    "spearman_p": 0.6227871720116618,
+    "pearson": -0.6700351204528696,
+    "pearson_p": 0.14535246891727044,
+    "weighted_kendall": -0.14557823129251712
+  }
+]

@@ -1,0 +1,5 @@
+Metric,Spearman rho,Spearman p,Pearson r,Pearson p
+FCC (Inception),-0.8214,0.0234,-0.6846,0.0898
+FCC (DINO),-0.5357,0.2152,-0.6164,0.1404
+LogME,0.6429,0.1194,0.8111,0.0268
+LEEP,0.5714,0.1802,0.7495,0.0524

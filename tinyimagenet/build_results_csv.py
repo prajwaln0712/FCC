@@ -75,7 +75,6 @@ def main():
     if os.path.exists(old_path):
         os.remove(old_path)
         print(f"Removed stale {old_path}")
-
     baselineB_acc = {t: load_json(f"baselineB/results_task_{t}.txt")["acc"] for t in range(NUM_TASKS)}
     baselineA_acc = {t: load_json(f"baselineA/results_task_{t}.txt")[args.acc_field] for t in range(NUM_TASKS)}
 
@@ -94,6 +93,7 @@ def main():
                 "transfer_acc": r(transfer_acc, 2),
                 "baselineB_acc": r(b_acc, 2),
                 "baselineA_acc": r(a_acc, 2),
+                #Computing performance gain here P(S->T) - P(T)
                 "gain_vs_baselineB": r(transfer_acc - b_acc, 2),
                 "gain_vs_baselineA": r(transfer_acc - a_acc, 2),
             })

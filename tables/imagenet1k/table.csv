@@ -1,0 +1,7 @@
+places365,svhn,
+mnist,kmnist,
+eurosat,cifar10,
+cifar10,places365,
+fashionmnist,mnist,
+kmnist,fashionmnist,
+svhn,eurosat,

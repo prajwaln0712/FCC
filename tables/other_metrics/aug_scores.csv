@@ -1,0 +1,13 @@
+seed,logme,leep,n_images,n_target_classes,n_source_classes,feature_dim,data_source,extract_seconds,score_seconds
+1,0.25227307347709305,-1.503028908315644,50000,10,200,2048,dataaugmentation/aug_1/transformed_train_cifar10.pt,556.1,11.3
+2,0.25736454053459235,-1.432550808387563,50000,10,200,2048,dataaugmentation/aug_2/transformed_train_cifar10.pt,552.8,6.0
+3,0.2349427658063521,-1.6356017741988964,50000,10,200,2048,dataaugmentation/aug_3/transformed_train_cifar10.pt,547.1,5.8
+4,0.19351740886075347,-1.8233629111945617,50000,10,200,2048,dataaugmentation/aug_4/transformed_train_cifar10.pt,545.1,6.0
+5,0.2524502188963126,-1.4126330759723786,50000,10,200,2048,dataaugmentation/aug_5/transformed_train_cifar10.pt,543.4,5.9
+6,0.24379047507709695,-1.5391298560499507,50000,10,200,2048,dataaugmentation/aug_6/transformed_train_cifar10.pt,475.8,4.9
+7,0.2013522984465649,-1.8093811301538163,50000,10,200,2048,dataaugmentation/aug_7/transformed_train_cifar10.pt,474.2,4.9
+8,0.2519796708661399,-1.5851494042512486,50000,10,200,2048,dataaugmentation/aug_8/transformed_train_cifar10.pt,467.5,4.9
+9,0.22942040169304806,-1.65029682907619,50000,10,200,2048,dataaugmentation/aug_9/transformed_train_cifar10.pt,468.6,5.1
+13,0.25449898928973147,-1.475624013190391,50000,10,200,2048,dataaugmentation/aug_13/transformed_train_cifar10.pt,465.0,5.0
+14,0.24067374606558367,-1.533521715586348,50000,10,200,2048,dataaugmentation/aug_14/transformed_train_cifar10.pt,472.4,4.9
+15,0.19208586095488908,-1.811172902624253,50000,10,200,2048,dataaugmentation/aug_15/transformed_train_cifar10.pt,469.1,5.0

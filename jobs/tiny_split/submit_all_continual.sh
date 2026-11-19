@@ -11,14 +11,14 @@
 # (baseline + baselineA) don't load any checkpoint, so they have no dependency and can start
 # immediately alongside the train_task jobs.
 #
-# Run this directly on the login node: bash jobs/submit_all_continual.sh
+# Run this directly on the login node: bash jobs/tiny_split/submit_all_continual.sh
 set -euo pipefail
 
 declare -A TASK_JOBID
 
 echo "Submitting 10 train_task.py jobs..."
 for TASK in $(seq 0 9); do
-    JOBID=$(sbatch --parsable jobs/train_task_production.sh "$TASK")
+    JOBID=$(sbatch --parsable jobs/tiny_split/train_task_production.sh "$TASK")
     TASK_JOBID[$TASK]=$JOBID
     echo "  task $TASK -> job $JOBID"
 done
@@ -29,7 +29,7 @@ for SOURCE in $(seq 0 9); do
         if [ "$SOURCE" -eq "$TARGET" ]; then
             continue
         fi
-        JOBID=$(sbatch --parsable --dependency=afterok:${TASK_JOBID[$SOURCE]} jobs/transfer_eval_production.sh "$SOURCE" "$TARGET" 1)
+        JOBID=$(sbatch --parsable --dependency=afterok:${TASK_JOBID[$SOURCE]} jobs/tiny_split/transfer_eval_production.sh "$SOURCE" "$TARGET" 1)
         echo "  finetune source=$SOURCE target=$TARGET -> job $JOBID (depends on ${TASK_JOBID[$SOURCE]})"
     done
 done
@@ -40,14 +40,14 @@ for SOURCE in $(seq 0 9); do
         if [ "$SOURCE" -eq "$TARGET" ]; then
             continue
         fi
-        JOBID=$(sbatch --parsable jobs/transfer_eval_production.sh "$SOURCE" "$TARGET" 0)
+        JOBID=$(sbatch --parsable jobs/tiny_split/transfer_eval_production.sh "$SOURCE" "$TARGET" 0)
         echo "  baseline source=$SOURCE target=$TARGET -> job $JOBID"
     done
 done
 
 echo "Submitting 10 baselineA (load_pretrain=0, source==target) jobs..."
 for TASK in $(seq 0 9); do
-    JOBID=$(sbatch --parsable jobs/transfer_eval_production.sh "$TASK" "$TASK" 0)
+    JOBID=$(sbatch --parsable jobs/tiny_split/transfer_eval_production.sh "$TASK" "$TASK" 0)
     echo "  baselineA task $TASK -> job $JOBID"
 done
 
