@@ -1,0 +1,23 @@
+# Dependencies for the FCC experiments (NIST, Tiny-ImageNet task split, augmentation, ImageNet-1K,
+# and the LogME / LEEP comparison). Deliberately unpinned: the cluster environment (ghn3_env) runs
+# Python 3.9, a newer local Python needs newer wheels, so one set of exact pins cannot fit both.
+# After a working install, freeze it for reproducibility:  pip freeze > requirements-lock.txt
+#
+# Install:  pip install -r requirements.txt
+# For GPU runs install the CUDA build of torch/torchvision that matches your driver first
+# (see https://pytorch.org/get-started/locally/), then run the line above.
+
+numpy
+scipy
+torch
+torchvision>=0.13        # EuroSAT dataset class (added in 0.13 -- from memory, not verified here)
+transformers>=4.56       # DINOv3 models (support added in 4.56 -- from memory, not verified here)
+pytorch-fid              # FID-weights Inception-v3 (imported as pytorch_fid)
+POT                      # imported as `ot`; used by util.py
+numba                    # LogME/LogME.py (LogME scores only)
+matplotlib
+seaborn
+
+# Optional / legacy
+pandas                   # only dataaugmentation/plot_aug_correlations.py
+tqdm                     # only fid_experiment.py (legacy script, see README "Known issues")
